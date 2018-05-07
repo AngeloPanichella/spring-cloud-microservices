@@ -33,6 +33,10 @@ http://localhost:8761
 
 http://localhost:8765/swagger-ui.html#/
 
+### Authentication
+
+The authentication is based on oauth2. The microservice is authentication-service
+
 ### Example of running microservice
 
 $ ./authentication-service$ java -jar target/authentication-service.jar
