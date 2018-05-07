@@ -1,0 +1,32 @@
+{
+  "itemList": [
+    {
+      "description" : "imported bottle of perfum",
+      "quantity" : 1,
+      "type" : "GENERIC",
+      "price" : 27.99,
+      "isImported" : true
+    },
+    {
+      "description" : "bottle of perfum",
+      "quantity" : 1,
+      "type" : "GENERIC",
+      "price" : 18.99,
+      "isImported" : false
+    },
+    {
+      "description" : "headache",
+      "quantity" : 1,
+      "type" : "MEDICAL",
+      "price" : 9.75,
+      "isImported" : false
+    },
+    {
+      "description" : "imported box of choccolate",
+      "quantity" : 1,
+      "type" : "FOOD",
+      "price" : 11.25,
+      "isImported" : true
+    }
+  ]
+}

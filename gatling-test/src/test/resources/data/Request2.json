@@ -1,0 +1,18 @@
+{
+  "itemList": [
+    {
+      "description" : "bottle of chocccolate",
+      "quantity" : 1,
+      "type" : "FOOD",
+      "price" : 10.00,
+      "isImported" : true
+    },
+    {
+      "description" : "bottle of porfum",
+      "quantity" : 1,
+      "type" : "GENERIC",
+      "price" : 47.50,
+      "isImported" : true
+    }
+  ]
+}

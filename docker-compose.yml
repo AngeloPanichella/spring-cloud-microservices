@@ -1,0 +1,39 @@
+discovery:
+  image: company/discovery-service
+  ports:
+   - "8761:8761"
+
+gateway:
+  image: company/gateway-service
+  ports:
+   - "8765:8765"
+
+authentication:
+  image: company/authentication-service
+  ports:
+   - "4444:4444"
+
+customer:
+  image: company/customer-service
+  ports:
+   - "3333:3333"
+
+item:
+  image: company/item-service
+  ports:
+   - "2222:2222"
+
+order:
+  image: company/order-service
+  ports:
+   - "7777:7777"
+
+tax:
+  image: company/order-service
+  ports:
+   - "8888:8888"
+
+zipkin:
+  image: company/zipkin-service
+  ports:
+   - "9411:9411"
