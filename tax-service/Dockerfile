@@ -1,5 +1,7 @@
 FROM openjdk
 MAINTAINER Angelo Panichella <angelo.panichella@gmail.com>
-ADD target/tax-service.jar tax-service.jar
-ENTRYPOINT ["java", "-jar", "/tax-service.jar"]
-EXPOSE 8888
+ADD "target/tax-service.jar" app.jar
+
+ENV JAVA_OPTS=""
+
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]

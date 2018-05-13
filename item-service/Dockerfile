@@ -1,5 +1,7 @@
 FROM openjdk
 MAINTAINER Angelo Panichella <angelo.panichella@gmail.com>
-ADD target/item-service.jar item-service.jar
-ENTRYPOINT ["java", "-jar", "/item-service.jar"]
-EXPOSE 2222
+ADD "target/item-service.jar" app.jar
+
+ENV JAVA_OPTS=""
+
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]

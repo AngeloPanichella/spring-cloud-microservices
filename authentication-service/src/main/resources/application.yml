@@ -6,11 +6,11 @@ logging:
     org.springframework.security: DEBUG
 
 server:
-  port: ${PORT:4444}
+  port: 4444
 
 spring:
   application:
-    name: authentication-service
+    name: ${springboot.app.name:authentication-service}
   resources:
     chain:
       enabled: true
@@ -27,10 +27,12 @@ management:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${DISCOVERY_URL:http://localhost:8761}/eureka/
+      defaultZone: http://${registry.host:localhost}:${registry.port:8761}/eureka/
   instance:
     leaseRenewalIntervalInSeconds: 1
     leaseExpirationDurationInSeconds: 2
+    healthcheck:
+      enabled: true
 
 ribbon:
   eureka:

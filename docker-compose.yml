@@ -1,39 +1,89 @@
-discovery:
-  image: company/discovery-service
-  ports:
-   - "8761:8761"
+version: '3.0'
 
-gateway:
-  image: company/gateway-service
-  ports:
-   - "8765:8765"
+services:
 
-authentication:
-  image: company/authentication-service
-  ports:
-   - "4444:4444"
+  discovery-service:
+    build: ./discovery-service
+    ports:
+     - "8761:8761"
+    tty:
+      true
+    restart:
+      unless-stopped
 
-customer:
-  image: company/customer-service
-  ports:
-   - "3333:3333"
+  gateway-service:
+    build: ./gateway-service
+    ports:
+     - "8765:8765"
+    environment:
+      - REGISTRY_HOST=discovery-service
+    tty:
+      true
+    restart:
+      unless-stopped
 
-item:
-  image: company/item-service
-  ports:
-   - "2222:2222"
+  authentication-service:
+    build: ./authentication-service
+    ports:
+     - "4444:4444"
+    environment:
+      - REGISTRY_HOST=discovery-service
+    tty:
+      true
+    restart:
+      unless-stopped
 
-order:
-  image: company/order-service
-  ports:
-   - "7777:7777"
+  customer-service:
+    build: ./customer-service
+    ports:
+     - "3333:3333"
+    environment:
+      - REGISTRY_HOST=discovery-service
+    tty:
+      true
+    restart:
+      unless-stopped
 
-tax:
-  image: company/order-service
-  ports:
-   - "8888:8888"
+  item-service:
+    build: ./item-service
+    ports:
+     - "2222:2222"
+    environment:
+      - REGISTRY_HOST=discovery-service
+    tty:
+      true
+    restart:
+      unless-stopped
 
-zipkin:
-  image: company/zipkin-service
-  ports:
-   - "9411:9411"
+  order-service:
+    build: ./order-service
+    ports:
+     - "7777:7777"
+    environment:
+      - REGISTRY_HOST=discovery-service
+    tty:
+      true
+    restart:
+      unless-stopped
+
+  tax-service:
+    build: ./tax-service
+    ports:
+     - "8888:8888"
+    environment:
+      - REGISTRY_HOST=discovery-service
+    tty:
+      true
+    restart:
+      unless-stopped
+
+  zipkin-service:
+    build: ./zipkin-service
+    ports:
+     - "9411:9411"
+    environment:
+      - REGISTRY_HOST=discovery-service
+    tty:
+      true
+    restart:
+      unless-stopped

@@ -49,12 +49,12 @@ public class Application {
     @Bean
     public Docket api() throws IOException, XmlPullParserException {
         MavenXpp3Reader reader = new MavenXpp3Reader();
-        Model model = reader.read(new FileReader("pom.xml"));
+//        Model model = reader.read(new FileReader("pom.xml"));
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.company.authentication.api"))
                 .paths(PathSelectors.any())
-                .build().apiInfo(new ApiInfo("Authentication Api Documentation", "Documentation automatically generated", model.getParent().getVersion(), null, new Contact("company Team", "www.company.com", "company@gmail.com"), null, null));
+                .build().apiInfo(new ApiInfo("Authentication Api Documentation", "Documentation automatically generated", getClass().getPackage().getImplementationVersion(), null, new Contact("company Team", "www.company.com", "company@gmail.com"), null, null));
     }
 
 }

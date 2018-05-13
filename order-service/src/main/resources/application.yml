@@ -1,14 +1,14 @@
 server:
-  port: ${PORT:7777}
+  port: 7777
 
 spring:
   application:
-    name: order-service
+    name: ${springboot.app.name:order-service}
 
 eureka:  
   client:
     serviceUrl:
-      defaultZone: ${DISCOVERY_URL:http://localhost:8761}/eureka/
+      defaultZone: http://${registry.host:localhost}:${registry.port:8761}/eureka/
   instance:
     leaseRenewalIntervalInSeconds: 1
     leaseExpirationDurationInSeconds: 2

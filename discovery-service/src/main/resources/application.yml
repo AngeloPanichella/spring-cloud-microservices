@@ -1,11 +1,15 @@
-server:  
-  port: ${PORT:8761}
-    
-eureka:  
+spring:
+  application:
+    name: ${springboot.app.name:discovery-service}
+
+server:
+  port: 8761
+
+eureka:
   instance:
-    hostname: localhost
+    hostname: ${springboot.app.name:discovery-service}
   client:
-    registerWithEureka: false
+    registerWithEureka: true
     fetchRegistry: false
-  server:
-    enableSelfPreservation: false  
+    serviceUrl:
+      defaultZone: http://${registry.host:localhost}:${server.port}/eureka/

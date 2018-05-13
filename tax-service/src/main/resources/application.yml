@@ -1,14 +1,14 @@
 server:
-  port: ${PORT:8888}
+  port: 8888
 
 spring:
   application:
-    name: tax-service
+    name: ${springboot.app.name:tax-service}
 
 eureka:  
   client:
     serviceUrl:
-      defaultZone: ${DISCOVERY_URL:http://localhost:8761}/eureka/
+      defaultZone: http://${registry.host:localhost}:${registry.port:8761}/eureka/
   instance:
     leaseRenewalIntervalInSeconds: 1
     leaseExpirationDurationInSeconds: 2

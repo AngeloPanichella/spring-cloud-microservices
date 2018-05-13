@@ -1,3 +1,7 @@
+spring:
+  application:
+    name: ${springboot.app.name:gateway-service}
+
 info:
   component: Edge Server
   
@@ -36,10 +40,6 @@ zuul:
       path: /authentication-api/**
       sensitiveHeaders:
       serviceId: authentication-service
-    chat:
-      path: /chat-api/**
-      sensitiveHeaders:
-      serviceId: chat-service
 
 hystrix:
   command:
@@ -57,8 +57,9 @@ ribbon:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://${registry.host:localhost}:${registry.port:8761}/eureka/
     registerWithEureka: false
+
       
 server:
   port: 8765
