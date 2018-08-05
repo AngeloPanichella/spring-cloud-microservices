@@ -40,3 +40,10 @@ http://localhost:8765/swagger-ui.html#/
 ### Authentication
 
 The authentication is based on oauth2.
+
+You can skip Docker goals bound to Maven phases with:
+
+* `-DskipDockerBuild` to skip image build
+* `-DskipDockerTag` to skip image tag
+* `-DskipDockerPush` to skip image push
+* `-DskipDocker` to skip any Docker goals

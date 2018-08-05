@@ -88,5 +88,5 @@ class CompanySimulation extends Simulation {
       session
     })
 
-  setUp(scn.inject(atOnceUsers(1)).protocols(httpConf))
+  setUp(scn.inject(atOnceUsers(10)).protocols(httpConf))
 }
